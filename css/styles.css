@@ -339,7 +339,7 @@ footer {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .top-section {
+    .top-section, .bottom-section {
         flex-direction: column; /* Stack elements vertically on small screens */
     }
     .carousel-container, .iframe-container, .widget-container.large {
