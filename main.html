@@ -2,10 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח אהבת ישראל</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<IFRAME src="https://www.yeshiva.org.il/generalpages/yeshivatimes?bgcolor=EDEDED&place=234" width="250" height="320" SCROLLING="no" frameborder="0"></IFRAME>
+<!--
+<iframe src="https://www.yeshiva.org.il/generalpages/yeshivatimes?bgcolor=EDEDED&place=234" width="250" height="320" SCROLLING="no" frameborder="0"></iframe>
+-->
+    <div class="container">
+        <header>
+            <h1 class="animated fadeInDown">בית כנסת אהבת ישראל</h1>
+            <h2 class="animated fadeInDown">בהרצה</h2>
+        </header>
+
+        <main>
+            <div class="top-section">
+                <div class="zmanim-container animated fadeInLeft">
+                    <iframe src="https://www.yeshiva.org.il/calendar/timesdayprint.aspx?place=234" width="250" height="1000" SCROLLING="no" frameborder="0"></iframe>
+                </div>
+
+                <div class="carousel-container animated fadeInUp">
+                    <div class="carousel">
+                        <div class="carousel-item"><img src="media/1.jpg" alt="Carousel Image 1"></div>
+                        <div class="carousel-item"><img src="media/2.jpg" alt="Carousel Image 2"></div>
+                        <div class="carousel-item"><img src="media/3.jpg" alt="Carousel Image 3"></div>
+                        <div class="carousel-item"><img src="media/4.jpg" alt="Carousel Image 4"></div>
+                    </div>
+                    <button class="carousel-button prev">❮</button>
+                    <button class="carousel-button next">❯</button>
+                </div>
+
+                <div class="widget-container large animated fadeInRight">
+                    <div class="widget-image">
+                        <img src="https://www.gns.org/wp-content/uploads/2024/01/icon-siddur.png" alt="Siddur Icon" width="60" height="60">
+                    </div>
+                    <div class="iframe-container">
+                        <div id="shabat-iframe" class="iframe-left">
+                            <iframe name="shabat-iframe" src="https://docs.google.com/document/d/1Hqmhwu7O-9KuR5oZzJoiT65i_naqMW0Ujlcd5chkPUw/pub?embedded=true" width="100%" height="700" scrolling="no" frameborder="0"></iframe>
+                        </div>
+                        <div id="weekdays-iframe" class="iframe-right">
+                            <iframe name="weekdays-iframe" src="https://docs.google.com/document/d/1vo_F2ojMjxtiGglakAKC3dsOq-ZI6I_gzF0h5WCHipQ/pub?embedded=true" width="100%" height="700" scrolling="no" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-section">
+                <div class="widget-container-lectures full-width animated fadeInUp">
+                    <div class="widget-image">
+                        <img src="https://www.gns.org/wp-content/uploads/2024/01/icon-torah.png" alt="Torah Icon" width="80" height="80">
+                    </div>
+                    <div id="lectures-container">
+                        Loading lectures...
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="full-width animated fadeInUp">
+                <div id="rotating-announcements">Loading announcements...</div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/scripts.js"></script>
 
 </body>
 </html>
