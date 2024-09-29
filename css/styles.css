@@ -217,6 +217,7 @@ footer {
 
 .iframe-left, .iframe-right {
     width: 48%; /* Adjust this value to control the width of each iframe */
+    flex: 1 1 calc(50% - 10px);
 }
 
 .iframe-left iframe, .iframe-right iframe {
@@ -251,6 +252,7 @@ footer {
     .iframe-left, .iframe-right {
         width: 100%;
         margin-bottom: 0px;
+        flex: 1 1 100%;
     }
 }
 
