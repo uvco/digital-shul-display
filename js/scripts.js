@@ -10,12 +10,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (lectures.length > 0) {
                 lectureContainer.innerHTML = '';  // Clear the loading message
-                lectures.forEach(lecture => {
+                lectures.forEach((lecture, index) => {
                     // Create a div for each lecture
                     const lectureDiv = document.createElement('div');
                     lectureDiv.className = 'lecture-item';
                     lectureDiv.innerHTML = lecture;
                     lectureContainer.appendChild(lectureDiv);
+
+                    // Add separator bar after each lecture except the last one
+                    if (index < lectures.length - 1) {
+                        const separatorDiv = document.createElement('div');
+                        separatorDiv.className = 'lecture-separator';
+                        separatorDiv.innerHTML = '|';
+                        lectureContainer.appendChild(separatorDiv);
+                    }
                 });
             } else {
                 lectureContainer.innerHTML = "No lectures available";

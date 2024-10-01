@@ -18,8 +18,11 @@ body {
 
 .container {
     max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0;
+    padding: 0px;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -27,9 +30,27 @@ header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: #fff;
     text-align: center;
-    padding: 2rem;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     border-radius: 0 0 50% 50% / 20px;
+    flex: 0 1 10%; /* Make sure they don't grow too large */
+    padding: 0px;
+}
+
+footer {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    color: #fff;
+    text-align: center;
+    margin-top: 0px;
+    border-radius: 50% 50% 0 0 / 20px;
+    flex: 0 1 10%; /* Make sure they don't grow too large */
+    padding: 0px;
+}
+
+main {
+    flex: 1 1 auto; /* Take the remaining space */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent content from overflowing */
 }
 
 header h1 {
@@ -39,31 +60,43 @@ header h1 {
 }
 
 .top-section {
+    flex: 1 1 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     flex-wrap: wrap;
     gap: 0px; /* Optional: to add space between elements */
+    overflow: visible;
+    align-items: flex-start;
 }
 
 .bottom-section {
+    flex: 1 1 100%;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
+    justify-content: center;
+    align-items: flex-end; /* Aligns the content at the bottom */
+    margin-bottom: 0px;
     flex-wrap: wrap;
-    gap: 5px; /* Optional: to add space between elements */
+    gap: 0px; /* Optional: to add space between elements */
+    overflow: visible;
+    height: 50vh; /* Reduces the section height by half */
+    max-height: 100%;
 }
 
 .widget-container {
     background-color: var(--widget-background);
-    padding: 25px;
+    padding: 0px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     transition: all 0.3s ease;
-    flex-basis: calc(50% - 20px);
-    max-width: 30%;
-    max-height: 700px;
+    flex: 1 1 100%;
+    display: flex;
+    flex-basis: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    flex-direction: column;
 }
 
 .widget-container:hover {
@@ -72,7 +105,8 @@ header h1 {
 }
 
 .widget-container.large {
-    flex-basis: calc(50% - 20px);
+    flex-basis: 20%;
+    height: 100%;
 }
 
 .widget-container.full-width {
@@ -80,19 +114,24 @@ header h1 {
 }
 
 .widget-container-lectures {
-    background-color: var(--widget-background);
-    padding: 10px;
+    padding: 0px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     transition: all 0.3s ease;
-    flex-basis: calc(100% - 20px);
+    flex: 1 1 100%;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align content to the bottom inside the widget */
     max-width: 100%;
+    max-height: 100%; /* Scale down widget containers */
+    overflow: hidden;
 }
 
 .widget-image {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .widget-image img {
@@ -110,7 +149,6 @@ header h2 {
     margin-top: 0;
     font-weight: 600;
     font-size: 16px;
-    /*border-bottom: 2px solid var(--accent-color);*/
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
@@ -125,15 +163,10 @@ header h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 0px;
-}
-
-footer {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-    color: #fff;
     text-align: center;
-    padding: 2rem;
-    margin-top: 10px;
-    border-radius: 50% 50% 0 0 / 20px;
+    width: 100%; /* Make sure the lecture container spans full width */
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding is accounted for inside the width */
 }
 
 /* Animations */
@@ -191,28 +224,12 @@ footer {
 .fadeInRight { animation-name: fadeInRight; }
 .fadeInUp { animation-name: fadeInUp; }
 
-/* Responsive design */
-@media (max-width: 1200px) {
-    .widget-container,
-    .widget-container.large {
-        flex-basis: calc(50% - 20px);
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .widget-container,
-    .widget-container.large {
-        flex-basis: 100%;
-        max-width: 100%;
-    }
-}
-
 .iframe-container {
     display: flex;
     justify-content: space-between;
     margin-top: 0px;
-    flex-basis: calc(33% - 20px); /* Keep this to ensure side-by-side layout */
+    flex-basis: 30%;
+    max-height: 300px; /* Adjust iframe height */
 }
 
 .iframe-left, .iframe-right {
@@ -222,13 +239,17 @@ footer {
 
 .iframe-left iframe, .iframe-right iframe {
     width: 100%;
+    height: 100%; /* Fit within the available space */
     border: 0px;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .zmanim-container {
+    flex: 0 0 10%;
     display: flex;
     max-width: 10%;
+    max-height: 100%;
     justify-content: space-between;
     margin-top: 0px;
     flex-basis: calc(33% - 20px); /* Keep this to ensure side-by-side layout */
@@ -243,30 +264,16 @@ footer {
     height: 700px;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .iframe-container {
-        flex-direction: column;
-    }
-
-    .iframe-left, .iframe-right {
-        width: 100%;
-        margin-bottom: 0px;
-        flex: 1 1 100%;
-    }
-}
-
-
 .carousel-container {
     position: relative;
     max-width: 50%;
-    max-height: 500px;
+    max-height: 50%;
     justify-content: center;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     flex-basis: 100%; /* This ensures the carousel takes full width between the two elements */
-    /*margin: 20px auto;*/
+    margin: 100px;
 }
 
 .carousel {
@@ -278,6 +285,9 @@ footer {
 .carousel-item {
     flex: 0 0 100%;
     max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .carousel-item img {
@@ -338,18 +348,44 @@ footer {
 }
 
 /* Responsive design */
+@media (max-width: 1200px) {
+    .widget-container,
+    .widget-container.large {
+        flex-basis: 40%;
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
+    .widget-container,
+    .widget-container.large {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .iframe-container {
+        flex-direction: column;
+    }
+
+    .iframe-left, .iframe-right {
+        width: 100%;
+        margin-bottom: 0px;
+        flex: 1 1 100%;
+    }
     .top-section, .bottom-section {
         flex-direction: column; /* Stack elements vertically on small screens */
+        height: auto; /* Allow it to adjust height */
     }
-    .carousel-container, .iframe-container, .widget-container.large {
+    .carousel-container, .iframe-container {
         flex-basis: 100%;
         margin: 0; /* Remove margins for full width */
+        max-height: 100%; /* Reduce height for smaller screens */
     }
 
     .carousel-container {
         max-width: 100%;
         border-radius: 0;
+        height: 200px; /* Reduce carousel height */
     }
 
     .carousel {
@@ -360,4 +396,20 @@ footer {
         font-size: 18px;
         padding: 10px;
     }
+
+    .iframe-left iframe, .iframe-right iframe {
+        height: 200px; /* Adjust iframe height */
+    }
+}
+
+.lecture-separator {
+    text-align: center;
+    color: var(--primary-color); /* Use primary color for the bar */
+    font-size: 20px; /* Adjust the size of the bar */
+    margin: 0px; /* Add some space above and below the bar */
+    width: 10%;
+    flex-basis: 10%;
+    display: flex;
+    justify-content: center;
+
 }
