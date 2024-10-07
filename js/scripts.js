@@ -61,3 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
             rotatingAnnouncements.innerHTML = "Failed to load announcements.";
         });
 });
+
+setInterval(function() {
+    location.reload(); // Refresh the whole page
+}, 600000); // Refresh every 10 minutes

@@ -97,6 +97,7 @@ header h1 {
     max-height: 100%;
     overflow: hidden;
     flex-direction: column;
+    margin-right: 10px;
 }
 
 .widget-container:hover {
@@ -132,6 +133,7 @@ header h1 {
 .widget-image {
     text-align: center;
     margin-bottom: 0px;
+    margin-top: 10px;
 }
 
 .widget-image img {
@@ -148,7 +150,16 @@ header h2 {
     color: #fff;
     margin-top: 0;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 12px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+footer h2 {
+    color: #fff;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 12px;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
@@ -251,7 +262,7 @@ header h2 {
     max-width: 10%;
     max-height: 100%;
     justify-content: space-between;
-    margin-top: 0px;
+    margin-top: -65px;
     flex-basis: calc(33% - 20px); /* Keep this to ensure side-by-side layout */
 }
 
@@ -407,9 +418,10 @@ header h2 {
     color: var(--primary-color); /* Use primary color for the bar */
     font-size: 20px; /* Adjust the size of the bar */
     margin: 0px; /* Add some space above and below the bar */
-    width: 10%;
+    width: 100%;
     flex-basis: 10%;
     display: flex;
     justify-content: center;
+    align-items: center;     /* Center vertically */
 
 }
