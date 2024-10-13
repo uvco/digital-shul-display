@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>לוח אהבת ישראל</title>
+    <title>קהילת אהבת ישראל</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!--<link rel="stylesheet" href="css/carousel_styles.css">-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +14,7 @@
 -->
     <div class="container">
         <header>
-            <h1 class="animated fadeInDown">בית כנסת אהבת ישראל</h1>
+            <h1 class="animated fadeInDown">קהילת אהבת ישראל</h1>
         </header>
 
         <main>
@@ -22,7 +23,7 @@
                     <iframe src="https://www.yeshiva.org.il/calendar/timesdayprint.aspx?place=234" width="250" height="1000" SCROLLING="no" frameborder="0"></iframe>
                 </div>
 
-                <div class="carousel-container animated fadeInUp">
+                <!--<div class="carousel-container animated fadeInUp">
                     <div class="carousel">
                         <div class="carousel-item"><img src="media/1.jpg" alt="Carousel Image 1"></div>
                         <div class="carousel-item"><img src="media/2.jpg" alt="Carousel Image 2"></div>
@@ -31,19 +32,22 @@
                     </div>
                     <button class="carousel-button prev">❮</button>
                     <button class="carousel-button next">❯</button>
-                </div>
+                </div>-->
 
                 <div class="widget-container large animated fadeInRight">
                     <div class="widget-image">
                         <img src="assets/siddur-icon.svg" alt="Siddur Icon" width="40" height="40">
                     </div>
-                    <div class="iframe-container">
-                        <div id="shabat-iframe" class="iframe-left">
-                            <iframe name="shabat-iframe" src="https://docs.google.com/document/d/1Hqmhwu7O-9KuR5oZzJoiT65i_naqMW0Ujlcd5chkPUw/pub?embedded=true" width="100%" height="700" scrolling="no" frameborder="0"></iframe>
+                    <div class="table-container">
+                        <div id="holiday-table" class="table-right">
                         </div>
-                        <div id="weekdays-iframe" class="iframe-right">
-                            <iframe name="weekdays-iframe" src="https://docs.google.com/document/d/1vo_F2ojMjxtiGglakAKC3dsOq-ZI6I_gzF0h5WCHipQ/pub?embedded=true" width="100%" height="700" scrolling="no" frameborder="0"></iframe>
+
+                        <div id="shabat-table" class="table-right">
                         </div>
+
+                        <div id="weekdays-table" class="table-right">
+                        </div>
+
                     </div>
                 </div>
 
@@ -55,16 +59,16 @@
 
         <footer>
             <div class="full-width animated fadeInUp">
-                <div id="rotating-announcements">Loading announcements...</div>
+                <div id="rotating-announcements-container">
+                    <div id="rotating-announcements">טוען הודעות</div>
+                    <div class="widget-image flowers">
+                        <img src="assets/flowers-icon.svg" alt="Flowers Icon" width="40" height="40">
+                    </div>
+                </div>
             </div>
 
             <div class="widget-container-lectures full-width animated fadeInUp">
-                <!--<div class="widget-image">
-                    <img src="https://www.gns.org/wp-content/uploads/2024/01/icon-torah.png" alt="Torah Icon" width="80" height="80">
-                </div>-->
-                <div id="lectures-container">
-                    Loading lectures...
-                </div>
+                <div id="lectures-container">טוען שיעורים</div>
             </div>
 
             <h2 class="animated fadeInDown">לע״נ</h2>

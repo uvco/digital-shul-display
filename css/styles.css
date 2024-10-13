@@ -37,6 +37,7 @@ header {
 }
 
 footer {
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
     color: #fff;
     text-align: center;
@@ -93,7 +94,7 @@ header h1 {
     flex: 1 1 100%;
     display: flex;
     flex-basis: 100%;
-    max-width: 100%;
+    max-width: 80%;
     max-height: 100%;
     overflow: hidden;
     flex-direction: column;
@@ -128,6 +129,7 @@ header h1 {
     max-width: 100%;
     max-height: 100%; /* Scale down widget containers */
     overflow: hidden;
+    color: wheat;
 }
 
 .widget-image {
@@ -156,21 +158,16 @@ header h2 {
 }
 
 footer h2 {
-    color: #fff;
+    color: white;
     margin-top: 0;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
 
-#rotating-announcements {
-    font-size: 22px;
-    line-height: 1.8;
-}
-
 #lectures-container {
-    font-size: 20px;
+    font-size: 22px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 0px;
@@ -235,25 +232,12 @@ footer h2 {
 .fadeInRight { animation-name: fadeInRight; }
 .fadeInUp { animation-name: fadeInUp; }
 
-.iframe-container {
+.table-container {
     display: flex;
     justify-content: space-between;
     margin-top: 0px;
     flex-basis: 30%;
     max-height: 300px; /* Adjust iframe height */
-}
-
-.iframe-left, .iframe-right {
-    width: 48%; /* Adjust this value to control the width of each iframe */
-    flex: 1 1 calc(50% - 10px);
-}
-
-.iframe-left iframe, .iframe-right iframe {
-    width: 100%;
-    height: 100%; /* Fit within the available space */
-    border: 0px;
-    border-radius: 8px;
-    object-fit: cover;
 }
 
 .zmanim-container {
@@ -262,100 +246,20 @@ footer h2 {
     max-width: 10%;
     max-height: 100%;
     justify-content: space-between;
-    margin-top: -65px;
+    margin-top: -117px;
     flex-basis: calc(33% - 20px); /* Keep this to ensure side-by-side layout */
 }
 
-/* If you want to adjust the heights of the iframes */
-#shabat-iframe iframe {
-    height: 700px;
+#weekdays-table table {
+    direction: rtl;
 }
 
-#weekdays-iframe iframe {
-    height: 700px;
+#shabat-table table {
+    direction: rtl;
 }
 
-.carousel-container {
-    position: relative;
-    max-width: 50%;
-    max-height: 50%;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    flex-basis: 100%; /* This ensures the carousel takes full width between the two elements */
-    margin: 100px;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 500px; /* Adjust based on your preferred height */
-}
-
-.carousel-item {
-    flex: 0 0 100%;
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #333;
-    border: none;
-    font-size: 24px;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.carousel-button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.carousel-button.prev {
-    left: 10px;
-}
-
-.carousel-button.next {
-    right: 10px;
-}
-
-@keyframes carouselAnimation {
-    0% {
-        transform: translateX(0);
-    }
-    20%, 25% {
-        transform: translateX(0);
-    }
-    45%, 50% {
-        transform: translateX(-100%);
-    }
-    70%, 75% {
-        transform: translateX(-200%);
-    }
-    95%, 100% {
-        transform: translateX(-300%);
-    }
-}
-
-.carousel {
-    animation: carouselAnimation 20s infinite;
-}
-
-.carousel:hover {
-    animation-play-state: paused;
+#holiday-table table {
+    direction: rtl;
 }
 
 /* Responsive design */
@@ -374,54 +278,93 @@ footer h2 {
         max-width: 100%;
     }
 
-    .iframe-container {
+    .table-container {
         flex-direction: column;
-    }
-
-    .iframe-left, .iframe-right {
-        width: 100%;
-        margin-bottom: 0px;
-        flex: 1 1 100%;
-    }
-    .top-section, .bottom-section {
-        flex-direction: column; /* Stack elements vertically on small screens */
-        height: auto; /* Allow it to adjust height */
-    }
-    .carousel-container, .iframe-container {
         flex-basis: 100%;
         margin: 0; /* Remove margins for full width */
         max-height: 100%; /* Reduce height for smaller screens */
     }
 
-    .carousel-container {
-        max-width: 100%;
-        border-radius: 0;
-        height: 200px; /* Reduce carousel height */
-    }
-
-    .carousel {
-        height: 300px;
-    }
-
-    .carousel-button {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .iframe-left iframe, .iframe-right iframe {
-        height: 200px; /* Adjust iframe height */
+    .top-section, .bottom-section {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        height: auto; /* Allow it to adjust height */
     }
 }
 
 .lecture-separator {
     text-align: center;
-    color: var(--primary-color); /* Use primary color for the bar */
-    font-size: 20px; /* Adjust the size of the bar */
+    color: wheat;
+    font-size: 30px; /* Adjust the size of the bar */
     margin: 0px; /* Add some space above and below the bar */
     width: 100%;
     flex-basis: 10%;
     display: flex;
     justify-content: center;
     align-items: center;     /* Center vertically */
+}
 
+.responsive-table {
+    width: fit-content;
+    border-collapse: collapse;
+    margin: 5px 5px;
+    font-size: 20px;
+    text-align: center;
+    color: #003366;
+    padding: 5px;
+
+}
+
+.responsive-table th, .responsive-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.responsive-table th {
+    background-color: #f1f8ff;
+    text-decoration: underline;
+    padding-bottom: 5px; /* Adjust space between text and underline */
+}
+
+@media screen and (max-width: 600px) {
+    .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .responsive-table th {
+        display: none; /* Hide the headers on small screens */
+    }
+
+    .responsive-table td {
+        display: block;
+        text-align: right;
+        padding: 10px;
+        position: relative;
+    }
+
+    .responsive-table td::before {
+        content: attr(data-label); /* Set content to the column header */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+#rotating-announcements-container {
+    display: inline-flex; /* Use inline-flex to let the container wrap to the size of its content */
+    align-items: center;
+}
+
+#rotating-announcements {
+    padding-right: 5px; /* Add some space between text and image */
+    font-size: 28px;
+    line-height: 1.8;
+}
+
+.flowers {
+    display: none; /* Initially hidden */
+    margin-left: 5px;
 }

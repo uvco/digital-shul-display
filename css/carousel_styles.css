@@ -1,0 +1,99 @@
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #333;
+    border: none;
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 45%;
+    max-height: 50%;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    flex-basis: 100%; /* This ensures the carousel takes full width between the two elements */
+    margin: 100px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 500px; /* Adjust based on your preferred height */
+    animation: carouselAnimation 20s infinite;
+}
+
+.carousel:hover {
+    animation-play-state: paused;
+}
+
+@keyframes carouselAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    20%, 25% {
+        transform: translateX(0);
+    }
+    45%, 50% {
+        transform: translateX(-100%);
+    }
+    70%, 75% {
+        transform: translateX(-200%);
+    }
+    95%, 100% {
+        transform: translateX(-300%);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 100%;
+        border-radius: 0;
+        height: 200px; /* Reduce carousel height */
+        flex-basis: 100%;
+        margin: 0; /* Remove margins for full width */
+        max-height: 100%; /* Reduce height for smaller screens */
+    }
+
+    .carousel {
+        height: 300px;
+    }
+
+    .carousel-button {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
