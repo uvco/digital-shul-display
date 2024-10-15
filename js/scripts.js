@@ -275,6 +275,39 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Log to ensure DOM is loaded
+    console.log("DOM fully loaded and parsed");
+
+    // Define the captureAndDownload function
+    function captureAndDownload() {
+        const targetDiv = document.getElementById("table-container");
+        if (targetDiv) {
+            html2canvas(targetDiv).then(canvas => {
+                const imgData = canvas.toDataURL("image/jpeg");
+                const link = document.createElement("a");
+                link.href = imgData;
+                link.download = "screenshot.jpg";
+                link.click(); // Trigger download
+            });
+        } else {
+            console.error("Element not found");
+        }
+    }
+
+    // Add event listener to the button
+    const captureBtn = document.getElementById("capture-btn");
+    if (captureBtn) {
+        captureBtn.addEventListener("click", function() {
+            console.log("Button clicked"); // Log when the button is clicked
+            captureAndDownload();
+        });
+    } else {
+        console.error("Button not found");
+    }
+});
+
 setInterval(function() {
     location.reload(); // Refresh the whole page
 }, 600000); // Refresh every 10 minutes
+
