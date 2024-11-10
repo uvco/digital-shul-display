@@ -277,4 +277,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 setInterval(function() {
     location.reload(); // Refresh the whole page
-}, 600000); // Refresh every 10 minutes
+}, 300000); // Refresh every 5 minutes
