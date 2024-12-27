@@ -275,6 +275,72 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 });
 
+document.addEventListener("DOMContentLoaded", async function () {
+    const timesContainer = document.getElementById("times-table");
+    const rssUrl = "http://he.chabad.org/tools/rss/zmanim.xml?locationid=1670&locationtype=1";
+    const proxyUrl = 'https://api.allorigins.win/raw?url=';
+
+    fetch(proxyUrl + encodeURIComponent(rssUrl))
+        .then(response => response.text())
+        .then(text => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(text, "application/xml");
+
+            const table = document.createElement('table');
+            table.classList.add('responsive-table');
+
+            let tr1 = document.createElement('tr');
+            let tr2 = document.createElement('tr');
+            let tr3 = document.createElement('tr');
+            let cellElement1 = document.createElement('td');
+            let cellElement2 = document.createElement('td');
+            let cellElement3 = document.createElement('td');
+            let hebrew_date = xml.querySelector("hebrew_date")?.textContent || "Not found";
+            let english_date = xml.querySelector("english_date")?.textContent || "Not found";
+            let copyright = xml.querySelector("copyright")?.textContent || "Not found";
+            cellElement1.textContent = hebrew_date.trim();
+            cellElement2.textContent = english_date.trim();
+            cellElement3.textContent = copyright.trim();
+            tr1.appendChild(cellElement1);
+            tr2.appendChild(cellElement2);
+            tr3.appendChild(cellElement3);
+            tr1.style.backgroundColor = '#f1f8ff';
+            tr2.style.backgroundColor = '#f1f8ff';
+            tr3.style.backgroundColor = '#f1f8ff';
+            tr3.style.fontSize = '14px'
+            table.appendChild(tr1);
+            table.appendChild(tr2);
+
+            const items = xml.querySelectorAll("item");
+            if (items.length > 0) {
+                items.forEach(item => {
+                    const tr = document.createElement('tr');
+                    let cellElement = document.createElement('td');
+                    const title = item.querySelector("title").textContent;
+
+                    // Remove the date portion
+                    const cleanTitle = title.replace(/\s*--\s*\(\d{2}\/\d{2}\/\d{4}\)/, '');
+                    cellElement.textContent = cleanTitle.trim();
+
+                    tr.appendChild(cellElement);
+                    table.appendChild(tr);
+                });
+            } else {
+                console.error("No rows available in the RSS data.");
+                timesContainer.innerHTML = "No rows available";
+            }
+
+            table.appendChild(tr3);
+
+            timesContainer.innerHTML = '';
+            timesContainer.appendChild(table);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            timesContainer.innerHTML = "Failed to load times";
+        });
+});
+
 setInterval(function() {
     location.reload(); // Refresh the whole page
 }, 300000); // Refresh every 5 minutes
