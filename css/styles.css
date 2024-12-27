@@ -80,8 +80,7 @@ header h1 {
     flex-wrap: wrap;
     gap: 0px; /* Optional: to add space between elements */
     overflow: visible;
-    height: 50vh; /* Reduces the section height by half */
-    max-height: 100%;
+    max-height: 1%;
 }
 
 .widget-container {
@@ -94,7 +93,7 @@ header h1 {
     flex: 1 1 100%;
     display: flex;
     flex-basis: 100%;
-    max-width: 80%;
+    max-width: 100%;
     max-height: 100%;
     overflow: hidden;
     flex-direction: column;
@@ -107,7 +106,7 @@ header h1 {
 }
 
 .widget-container.large {
-    flex-basis: 20%;
+    flex-basis: 100%;
     height: 100%;
 }
 
@@ -233,6 +232,7 @@ footer h2 {
 .fadeInUp { animation-name: fadeInUp; }
 
 .table-container {
+    background-color: var(--widget-background);
     display: flex;
     justify-content: space-between;
     margin-top: 0px;
@@ -240,14 +240,19 @@ footer h2 {
     max-height: 300px; /* Adjust iframe height */
 }
 
-.zmanim-container {
+/*.times-container {
+    background-color: var(--widget-background);
     flex: 0 0 10%;
     display: flex;
     max-width: 10%;
     max-height: 100%;
     justify-content: space-between;
     margin-top: -117px;
-    flex-basis: calc(33% - 20px); /* Keep this to ensure side-by-side layout */
+    flex-basis: calc(33% - 20px); !* Keep this to ensure side-by-side layout *!
+}*/
+
+#times-table table {
+    direction: rtl;
 }
 
 #weekdays-table table {
@@ -266,7 +271,7 @@ footer h2 {
 @media (max-width: 1200px) {
     .widget-container,
     .widget-container.large {
-        flex-basis: 40%;
+        flex-basis: 100%;
         max-width: 100%;
     }
 }
